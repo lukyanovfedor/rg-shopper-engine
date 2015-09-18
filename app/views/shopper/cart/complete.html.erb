@@ -1,0 +1,15 @@
+<%= render partial: 'shopper/cart/cart_items', locals: {items: @order.order_items, edit: false} %>
+
+<hr class="top-buffer" />
+
+<%= render partial: 'shopper/helpers/order', locals: { order: @order, edit: false } %>
+
+<hr class="top-buffer" />
+
+<%= render partial: 'shopper/checkout/summary', locals:  { order: @order } %>
+
+<hr class="top-buffer" />
+
+<div class="text-center">
+  <%= link_to t('complete.go_home'), main_app.root_path, class: 'btn btn-primary btn-lg' %>
+</div>

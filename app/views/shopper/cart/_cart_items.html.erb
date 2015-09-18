@@ -1,0 +1,48 @@
+<div class="table-responsive">
+  <table class="table table-striped cart-table">
+    <thead>
+      <th class="col-md-3"><%= t('cart.fields.title') %></th>
+
+      <th class="col-md-2"><%= t('cart.fields.quantity') %></th>
+
+      <th class="col-md-2"><%= t('cart.fields.for_one') %></th>
+
+      <th class="col-md-2"><%= t('cart.fields.for_all') %></th>
+
+      <% if edit %>
+        <th class="col-md-3"></th>
+      <% end %>
+    </thead>
+
+    <tbody>
+      <% items.each do |item| %>
+      <tr>
+        <td>
+          <%= item.product %>
+        </td>
+
+        <td>
+          <%= item.quantity %>
+        </td>
+
+        <td>
+          <%= beauty_price(item.product.price) + t('currency') %>
+        </td>
+
+        <td>
+          <%= beauty_price(item.total_price) + t('currency') %>
+        </td>
+
+        <% if edit %>
+          <td>
+            <%= form_tag(shopper.order_remove_product_path(item.product.product_type, item.product.id), method: 'delete', class: 'form-inline clearfix remove-product') do %>
+              <%= number_field_tag(:quantity, 1, min: 1, class: 'form-control') %>
+              <%= button_tag(t('cart.remove'), class: 'btn btn-warning') %>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,20 @@
+<div class="order-summary-little">
+  <h4 class="page-header"><%= t('checkout.summary.title') %></h4>
+
+  <dl class="dl-horizontal">
+    <dt><%= t('checkout.summary.products') %>:<dt>
+    <dd><%= beauty_price(order.items_price) %><%= t('currency') %></dd>
+  </dl>
+
+  <% if order.delivery  %>
+    <dl class="dl-horizontal">
+      <dt><%= t('checkout.summary.delivery') %>:<dt>
+      <dd><%= beauty_price(order.delivery.price) %><%= t('currency') %></dd>
+    </dl>
+  <% end %>
+
+  <dl class="dl-horizontal">
+    <dt><%= t('checkout.summary.total') %>:<dt>
+    <dd><%= beauty_price(order.total_price) %><%= t('currency') %></dd>
+  </dl>
+</div>

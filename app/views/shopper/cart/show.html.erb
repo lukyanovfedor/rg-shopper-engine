@@ -1,0 +1,9 @@
+<h1 class="page-header"><%= t('cart.title') %></h1>
+
+<% if @order.order_items.empty? %>
+  <%= t('cart.empty') %>
+<% else %>
+  <%= render partial: 'shopper/cart/cart_items', locals: { items: @order.order_items, edit: true } %>
+
+  <%= link_to t('checkout.title'), checkout_path(:address), class: 'btn btb-block btn-success btn-lg' %>
+<% end %>

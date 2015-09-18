@@ -1,0 +1,43 @@
+<%= render layout: 'layouts/shopper/checkout' do %>
+  <%= form_for @order, url: wizard_path, method: :put do |f| %>
+    <%= f.fields_for :credit_card do |ff| %>
+      <div class="row">
+        <div class="col-md-5 payment-form">
+          <h4 class="page-header">
+            <%= t('checkout.payment.title') %>
+          </h4>
+          <%= render partial: 'shopper/helpers/validation_errors', locals: { suspect: @order.credit_card } %>
+          <div class="form-group">
+            <%= ff.label :number %>
+            <%= ff.text_field :number, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= ff.label :expiration_month %>
+            <%= ff.select :expiration_month, months_for_select, { prompt: 'Choose month' }, { class: 'form-control months-select' } %>
+          </div>
+
+          <div class="form-group">
+            <%= ff.label :expiration_year %>
+            <%= ff.text_field :expiration_year, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= ff.label :cvv %>
+            <%= ff.text_field :cvv, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="col-md-3"></div>
+
+        <div class="col-md-4">
+          <%= render partial: 'shopper/checkout/summary', locals: { order: @order } %>
+        </div>
+      </div>
+
+      <hr/>
+
+      <%= f.button t('checkout.next'), name: nil, class: 'btn btn-success btn-lg pull-right' %>
+    <% end %>
+  <% end %>
+<% end %>

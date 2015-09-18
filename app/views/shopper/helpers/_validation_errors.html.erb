@@ -1,0 +1,9 @@
+<% if suspect.errors.any? %>
+  <ul class="list-group">
+    <% suspect.errors.full_messages.each do |msg| %>
+      <li class="list-group-item list-group-item-danger">
+        <%= msg %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

@@ -1,0 +1,33 @@
+<%= render layout: 'layouts/shopper/checkout' do %>
+  <%= form_for @order, url: wizard_path, method: :put do |of| %>
+    <div class="row">
+
+      <div class="col-md-5 delivery-form">
+
+        <h4 class="page-header">
+          <%= t('checkout.delivery.title') %>
+        </h4>
+
+        <% @deliveries.each do |d| %>
+        <div class="radio">
+          <label>
+            <%= of.radio_button :delivery_id, d.id %>
+            <%= "#{d} + #{beauty_price(d.price)}#{t('currency')}" %>
+          </label>
+        </div>
+        <% end %>
+
+      </div>
+
+      <div class="col-md-3"></div>
+
+      <div class="col-md-4">
+        <%= render partial: 'shopper/checkout/summary', locals: { order: @order } %>
+      </div>
+    </div>
+
+    <hr/>
+
+    <%= of.button t('checkout.next'), name: nil, class: 'btn btn-success btn-lg pull-right' %>
+  <% end %>
+<% end %>

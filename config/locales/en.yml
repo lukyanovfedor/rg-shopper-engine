@@ -1,0 +1,49 @@
+en:
+  currency: "$"
+  checkout:
+    title: "Checkout"
+    next: "Save and go next"
+    place_order: "Place order"
+    edit: "Edit"
+    billing:
+      title: "Billing address"
+      need_to_fill: "Fill addresses information to continue"
+    shipping:
+      title: "Shipping address"
+      need_to_fill: "Fill addresses information to continue"
+    delivery:
+      title: "Delivery"
+      need_to_fill: "Choose delivery method to continue"
+    payment:
+      title: "Payment"
+      need_to_fill: "Fill credit card information to continue"
+    finish:
+      created: "Order created. Thank you for choosing us"
+    summary:
+      title: "Order summary"
+      products: "Price for products"
+      delivery: "Price for delivery"
+      total: "Price for all"
+  cart:
+    title: "Cart"
+    fields:
+      title: "Title"
+      quantity: "Quantity"
+      for_one: "Price for one"
+      for_all: "Price for all"
+    remove: "Remove"
+    add: "Add to cart"
+    empty: "Cart is empty"
+  order:
+    added: "Product successfully added to your cart"
+    not_added: "Product not added"
+    removed: "Product successfully removed from your cart"
+    not_removed: "Product not removed"
+  complete:
+    go_home: "Back to homepage"
+  activerecord:
+    errors:
+      messages:
+        bad_phone: "must start with '+' and contain only numbers"
+        bad_card_number: "must be digit only with 16 length"
+        bad_email: "wrong format"

@@ -1,0 +1,140 @@
+<div class="row top-buffer">
+
+  <div class="col-md-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4>
+          <%= t('checkout.billing.title') %>
+
+          <% if edit %>
+            <small>
+              <%= link_to t('checkout.edit'), wizard_path(:address) %>
+            </small>
+          <% end %>
+        </h4>
+      </div>
+
+      <div class="panel-body">
+        <ul class="list-unstyled">
+          <li>
+            <%= order.billing_address.first_name %>
+          </li>
+          <li>
+            <%= order.billing_address.last_name %>
+          </li>
+          <li>
+            <%= order.billing_address.country %>
+          </li>
+          <li>
+            <%= order.billing_address.city %>
+          </li>
+          <li>
+            <%= order.billing_address.street %>
+          </li>
+          <li>
+            <%= order.billing_address.zip %>
+          </li>
+          <li>
+            <%= order.billing_address.phone %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4>
+          <%= t('checkout.shipping.title') %>
+
+          <% if edit %>
+            <small>
+              <%= link_to t('checkout.edit'), wizard_path(:address) %>
+            </small>
+          <% end %>
+        </h4>
+      </div>
+
+      <div class="panel-body">
+        <ul class="list-unstyled">
+          <li>
+            <%= order.shipping_address.first_name %>
+          </li>
+          <li>
+            <%= order.shipping_address.last_name %>
+          </li>
+          <li>
+            <%= order.shipping_address.country %>
+          </li>
+          <li>
+            <%= order.shipping_address.city %>
+          </li>
+          <li>
+            <%= order.shipping_address.street %>
+          </li>
+          <li>
+            <%= order.shipping_address.zip %>
+          </li>
+          <li>
+            <%= order.shipping_address.phone %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4>
+          <%= t('checkout.delivery.title') %>
+
+          <% if edit %>
+            <small>
+              <%= link_to t('checkout.edit'), wizard_path(:delivery) %>
+            </small>
+          <% end %>
+        </h4>
+      </div>
+
+      <div class="panel-body">
+        <ul class="list-unstyled">
+          <li>
+            <%= order.delivery.name %>
+          </li>
+          <li>
+            <%= beauty_price(order.delivery.price) %><%= t('currency') %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4>
+          <%= t('checkout.payment.title') %>
+
+          <% if edit %>
+            <small>
+              <%= link_to t('checkout.edit'), wizard_path(:payment) %>
+            </small>
+          <% end %>
+        </h4>
+      </div>
+
+      <div class="panel-body">
+        <ul class="list-unstyled">
+          <li>
+            <%= order.credit_card.secure_number %>
+          </li>
+          <li>
+            <%= order.credit_card.expiration_date %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

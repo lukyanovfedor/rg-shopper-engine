@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dummy</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<header>
+  <h4>Cart</h4>
+  <div>Total items: <%= "#{@current_order.order_items.count}" %></div>
+  <div>Total price: <%= "#{@current_order.items_price}#{t('currency')}" %></div>
+</header>
+
+<% if notice %>
+  <div class="alert alert-info">
+    <%= notice %>
+  </div>
+<% end %>
+
+<% if alert %>
+  <div class="alert alert-warn">
+    <%= alert %>
+  </div>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>

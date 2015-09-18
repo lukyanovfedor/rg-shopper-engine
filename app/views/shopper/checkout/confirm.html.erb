@@ -1,0 +1,19 @@
+<%= render layout: 'layouts/shopper/checkout' do %>
+  <div class="confirm">
+    <div class="top-buffer"></div>
+
+    <%= render partial: 'shopper/cart/cart_items', locals: { items: @order.order_items, edit: false } %>
+
+    <hr class="top-buffer" />
+
+    <%= render partial: 'shopper/helpers/order', locals: { order: @order, edit: true } %>
+
+    <%= render partial: 'shopper/checkout/summary', locals: { order: @order } %>
+
+    <hr class="top-buffer">
+
+    <%= form_tag wizard_path, method: :put do %>
+      <%= button_tag t('checkout.place_order'), name: nil, class: 'btn btn-success btn-lg pull-right' %>
+    <% end %>
+  </div>
+<% end %>
