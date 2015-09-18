@@ -1,0 +1,13 @@
+language: ruby
+rvm:
+  - 2.2.1
+env:
+  - DB=postgresql
+script:
+  - rake app:db:test:prepare
+  - RAILS_ENV=test bundle exec rspec
+before_script:
+  - psql -c 'create database dummy_test' -U postgres
+addons:
+  code_climate:
+    repo_token: e4e254cec7337dc55ac1bc046c08370907f605fa428872c66ec1cea6469fd002
