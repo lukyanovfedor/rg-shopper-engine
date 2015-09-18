@@ -25,14 +25,14 @@ Next, you need to mount shopper to your app, add in config/routes.rb
 mount Shopper::Engine => '/cart', as: 'shopper'
 ```
 
-Then you can easily register products with "register_as_product"
+Then you can easily register products with :register_as_product
 ```ruby
 class MyAwesomeProduct < ActiveRecord::Base
   register_as_product
 end
 ```
 
-and register customer with "register_as_customer"
+and register customer with :register_as_customer
 ```ruby
 class User < ActiveRecord::Base
   register_as_customer
